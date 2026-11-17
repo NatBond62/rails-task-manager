@@ -1,0 +1,17 @@
+<div class="m-5 p-5">
+  <div class="d-flex justify-content-between">
+    <h2><%= @task.title %></h2>
+    <%= link_to edit_task_path, class:"btn border border-dark-subtle" do %>
+      <i class="fa-solid fa-pen-to-square"></i> Edit this task
+    <% end %>
+  </div>
+  <div class="alert alert-secondary mt-2 p-3 border border-dark-subtle">
+    <p><%= @task.details %></p>
+  </div>
+  <hr class="border border-dark-subtle border-1">
+  <% checkboxMessage =  @task.completed ? "This task is completed" : "This task is not completed yet" %>
+  <p><%= check_box_tag :completed, 1, @task.completed, disabled: true %> <%= checkboxMessage %></p>
+  <%= link_to tasks_path, class:"text-decoration-none" do %>
+    <i class="fa-solid fa-rotate-left"></i> Back to list
+  <% end %>
+  </div>
